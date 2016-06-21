@@ -1285,6 +1285,16 @@ function um_user( $data, $attrs = null ) {
 					$name = um_profile( $data );
 				}
 			}
+                        if ( $op == 'initial_name_f_l' ) {
+                                if ( um_user('first_name') && um_user('last_name') ) {
+                                        $initial1 = um_user('first_name');
+                                        $initial2 = um_user('last_name');
+                                        $name = $initial1[0] . '. ' . $initial2[0]. '.';
+                                } else {
+                                        $name = um_profile( $data );
+                                }
+                        }
+
 
 			if ( $op == 'field' && um_get_option('display_name_field') != '' ) {
 				$fields = array_filter(preg_split('/[,\s]+/', um_get_option('display_name_field') ));

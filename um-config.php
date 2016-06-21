@@ -133,6 +133,7 @@ $this->sections[] = array(
 									'sur_name' 			=> __('Last name & first name','ultimatemember'),
 									'initial_name'		=> __('First name & first initial of last name','ultimatemember'),
 									'initial_name_f'	=> __('First initial of first name & last name','ultimatemember'),
+									'initial_name_f_l'	=> __('Initials of first name & last name','ultimatemember'),
 									'first_name'		=> __('First name only','ultimatemember'),
 									'field' 			=> __('Custom field(s)','ultimatemember'),
 				),
