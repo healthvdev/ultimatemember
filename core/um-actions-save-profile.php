@@ -72,6 +72,11 @@
 				$lname = get_user_meta( $user_id, 'last_name', true );
 				$update_name = $fname[0] . ' ' . $lname;
 				break;
+			case 'initial_name_f_l':
+				$fname = get_user_meta( $user_id, 'first_name', true );
+				$lname = get_user_meta( $user_id, 'last_name', true );
+				$update_name = $fname[0] . ' ' . $lname[0];
+				break;
 			case 'nickname':
 				$update_name = get_user_meta( $user_id, 'nickname', true );
 				break;
