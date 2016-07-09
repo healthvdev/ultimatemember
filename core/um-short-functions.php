@@ -1265,11 +1265,16 @@ function um_fetch_user( $user_id ) {
 	***	@default avatar
 	***/
 	function um_get_default_avatar_uri( $user_id = '' ) {
-		$uri = um_get_option('default_avatar');
-		$uri = $uri['url'];
-		if ( !$uri )
-			$uri = um_url . 'assets/img/default_avatar.jpg';
-
+		//setting default avatar based on gender ... User's actual avatar will never be shown
+		$gender = get_user_meta( $user_id, 'Gender', true );
+		if($gender==''){
+			$uri = um_get_option('default_avatar');
+			$uri = $uri['url'];
+			if ( !$uri )
+				$uri = um_url . 'assets/img/default_avatar.jpg';
+		}else{
+				$uri = um_url . 'assets/img/default_avatar_'.$gender.'_'.($user_id%3).'.png';
+		}
 		return $uri;
 	}
 
@@ -1481,11 +1486,11 @@ function um_fetch_user( $user_id ) {
 				$has_profile_photo = false;
 				$photo_type = 'um-avatar-default';
 
-				if ( um_profile('profile_photo') ) {
+				if ( false && um_profile('profile_photo') ) {
 						$avatar_uri = um_get_avatar_uri( um_profile('profile_photo'), $attrs );
 						$has_profile_photo = true;
 						$photo_type = 'um-avatar-uploaded';
-				} elseif( um_user('synced_profile_photo') ){
+				} elseif( false && um_user('synced_profile_photo') ){
 						$avatar_uri = um_user('synced_profile_photo');
 				} else {
 						$avatar_uri = um_get_default_avatar_uri( um_user('ID') );
