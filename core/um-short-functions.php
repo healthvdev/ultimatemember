@@ -1498,7 +1498,7 @@ function um_fetch_user( $user_id ) {
 
 				$avatar_uri = apply_filters('um_user_avatar_url_filter', $avatar_uri, um_user('ID') );
 
-				if ( $avatar_uri )
+				if ( false && $avatar_uri )
 
 					if( um_get_option('use_gravatars') && ! um_user('synced_profile_photo') && ! $has_profile_photo ){
 						$avatar_hash_id = get_user_meta( um_user('ID'),'synced_gravatar_hashed_id', true);
