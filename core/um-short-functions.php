@@ -1273,7 +1273,7 @@ function um_fetch_user( $user_id ) {
 			//if ( !$uri )
 				$uri = um_url . 'assets/img/default_avatar.jpg';
 		}else{
-				$uri = um_url . 'assets/img/default_avatar_'.strtolower($gender.'_'.($user_id%3)).'.png';
+				$uri = um_url . 'assets/img/default_avatar_'.strtolower($gender.'_'.($user_id%7)).'.png';
 		}
 		return $uri;
 	}
