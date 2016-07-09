@@ -1268,9 +1268,9 @@ function um_fetch_user( $user_id ) {
 		//setting default avatar based on gender ... User's actual avatar will never be shown
 		$gender = get_user_meta( $user_id, 'Gender', true );
 		if($gender==''){
-			$uri = um_get_option('default_avatar');
-			$uri = $uri['url'];
-			if ( !$uri )
+			//$uri = um_get_option('default_avatar');
+			//$uri = $uri['url'];
+			//if ( !$uri )
 				$uri = um_url . 'assets/img/default_avatar.jpg';
 		}else{
 				$uri = um_url . 'assets/img/default_avatar_'.strtolower($gender.'_'.($user_id%3)).'.png';
